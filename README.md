@@ -1,6 +1,6 @@
 # Web Chat Portal
 
-> Nota: última actualización realizada el 2025-12-11.
+> Nota: última actualización realizada el 2025-12-11 15:03:01 CET.
 
 Portal PHP sencillo pensado como laboratorio de administración de chats IA. Este repositorio contiene:
 
