@@ -45,6 +45,7 @@ Campos relevantes (resumen):
 - `tags`: etiquetas libres (`text[]`).
 - `content`: texto principal del evento.
 - `payload`: `jsonb` con metadatos, IDs internos, métricas, etc.
+- `origin_ts`: `timestamptz` generado por el backend cuando se envía el evento al webhook. Es el “reloj real” del backend, es la ordenación principal para reconstruir contexto y, si el backend no lo proporciona, la función `ia_nest_send_event()` lo inyecta automáticamente antes de hacer el POST a n8n.
 
 ## 3. Flujo de ESCRITURA (nuevo mensaje en el webchat)
 
@@ -74,6 +75,7 @@ El backend construye un JSON conforme al contrato y lo envía al webhook de n8n.
   "user_id": "user_42",
   "channel": "webchat",
   "thread_id": "thread_20251203_01",
+  "origin_ts": "2025-12-05T22:40:25.377000+00:00",
   "event_type": "message",
   "role": "user",
   "importance": 0,
@@ -87,11 +89,13 @@ El backend construye un JSON conforme al contrato y lo envía al webhook de n8n.
 }
 ```
 
+El campo opcional `origin_ts` llega como cadena ISO 8601 en UTC; normalmente lo rellena el backend y sirve para ordenar los eventos de la conversación. Si llega vacío, la función `ia_nest_send_event()` se encarga de completarlo antes del POST.
+
 En n8n:
 
 1. El nodo Webhook recibe el JSON.
 2. Un nodo Set/Function opcional puede aplicar defaults o validaciones.
-3. Un nodo PostgreSQL (Insert) inserta los campos en `ia_nest_events`.
+3. Un nodo PostgreSQL (Insert) inserta los campos en `ia_nest_events`; normalmente mapea `origin_ts` a la columna homónima. Si el backend no lo mandó, n8n podría recibirlo vacío y delega en PostgreSQL/función para rellenarlo.
 
 ### 3.3. Backend → Modelo IA
 
@@ -192,6 +196,40 @@ Pasos en el backend:
 1. Ejecutar la consulta con los parámetros adecuados.
 2. Invertir el orden en memoria (de más antiguo a más reciente).
 3. Mapear `role = 'user'` / `role = 'assistant'` a la estructura que espera el modelo.
+
+### Consulta estándar de contexto para Jarvis webchat
+
+Para la reconstrucción fina del contexto, el backend debe filtrar `ia_nest_events` por `agent`, `user_id`, `thread_id`, `event_type = 'message'` y `role IN ('user','assistant')`, utilizando `origin_ts` como orden cronológico principal:
+
+```sql
+SELECT
+    id,
+    agent,
+    user_id,
+    thread_id,
+    event_type,
+    role,
+    content,
+    origin_ts
+FROM ia_nest_events
+WHERE
+    agent      = :agent
+    AND user_id    = :user_id
+    AND thread_id  = :thread_id
+    AND event_type = 'message'
+    AND role IN ('user', 'assistant')
+ORDER BY
+    origin_ts ASC,
+    CASE role
+        WHEN 'user' THEN 0
+        WHEN 'assistant' THEN 1
+        ELSE 2
+    END,
+    id ASC
+LIMIT :limit;
+```
+
+`origin_ts` es la referencia temporal “real” enviada por el backend y se usa para ordenar toda la conversación. El `CASE role` resuelve empates extremos dando prioridad a los mensajes `user` frente a los `assistant`. El `LIMIT :limit` permite controlar cuántos mensajes recientes entran en el prompt (por ejemplo, los últimos 20).
 
 ### 4.2. Nuevo hilo de conversación
 
