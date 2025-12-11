@@ -1,6 +1,8 @@
 # === Logs & runtime data ===
 /my_ia_site/logs/
 *.log
+/my_ia_site/config/db.php
+/my_ia_site/config/users.php
 
 # === Local backup copies ===
 /bkp/
@@ -18,4 +20,3 @@
 Thumbs.db
 .idea/
 .vscode/
-

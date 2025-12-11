@@ -10,6 +10,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Includes para acceso a memoria ia_nest y configuración BD
+require_once __DIR__ . '/../../../config/db.php';
+require_once __DIR__ . '/../../../inc/ia_nest_memory.php';
+
 require_once __DIR__ . '/../../../inc/auth.php';
 require_once __DIR__ . '/prompt_helpers.php';
 require_login();
@@ -307,4 +311,3 @@ safe_log_append($logFile, $line);
 
 // Fin del script
 exit;
-
