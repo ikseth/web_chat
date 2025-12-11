@@ -1,0 +1,23 @@
+.main-content {
+  margin-left: 240px;
+  padding: 40px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 24px;
+  color: var(--primary-color);
+}
+
+.user-info-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 10px;
+  padding: 16px 22px;
+  max-width: 360px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  font-size: 1.05em;
+  line-height: 1.5em;
+  margin-bottom: 24px;
+}

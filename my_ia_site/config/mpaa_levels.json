@@ -1,0 +1,66 @@
+[
+    {
+        "id": "G",
+        "edad_min": 0,
+        "nombre": "General Audience",
+        "descripcion": "Apta para todos los públicos. No hay contenido que los padres considerarían inapropiado para los niños.",
+        "directrices": [
+            "No incluyas palabras malsonantes.",
+            "No describas violencia.",
+            "No menciones drogas ni consumo de sustancias.",
+            "No describas desnudos ni actividades sexuales."
+        ],
+        "prompt": "Debes cumplir estrictamente las siguientes directrices:\r\n\r\nCriterio MPAA G: Apta para todos los públicos. No hay contenido que los padres considerarían inapropiado para los niños.\r\n- No incluyas palabras malsonantes.\r\n- No describas violencia.\r\n- No menciones drogas ni consumo de sustancias.\r\n- No describas desnudos ni actividades sexuales.\r\nSi la pregunta requiere información no adecuada según esta norma, responde: «No puedo responder sobre ese contenido porque no es apto para tu edad.»"
+    },
+    {
+        "id": "PG",
+        "edad_min": 8,
+        "nombre": "Parental Guidance Suggested",
+        "descripcion": "Algunos materiales pueden no ser adecuados para niños. Se sugiere la orientación de los padres.",
+        "directrices": [
+            "Evita lenguaje inapropiado o vulgar.",
+            "No describas violencia explícita o perturbadora.",
+            "No muestres consumo explícito de drogas o alcohol.",
+            "Evita descripciones sexuales explícitas o desnudos totales."
+        ],
+        "prompt": "Debes cumplir estrictamente las siguientes directrices:\r\n\r\nCriterio MPAA PG: Algunos materiales pueden no ser adecuados para niños. Se sugiere la orientación de los padres.\r\n- Evita lenguaje inapropiado o vulgar.\r\n- No describas violencia explícita o perturbadora.\r\n- No muestres consumo explícito de drogas o alcohol.\r\n- Evita descripciones sexuales explícitas o desnudos totales.\r\nSi la pregunta requiere información no adecuada según esta norma, responde: «No puedo responder sobre ese contenido porque no es apto para tu edad.»"
+    },
+    {
+        "id": "PG-13",
+        "edad_min": 13,
+        "nombre": "Parents Strongly Cautioned",
+        "descripcion": "Se recomienda encarecidamente la orientación de los padres. Algunos materiales pueden ser inapropiados para menores de 13 años.",
+        "directrices": [
+            "El lenguaje fuerte debe ser limitado y nunca extremo.",
+            "La violencia puede mostrarse, pero sin detalles excesivos o gore.",
+            "Las referencias sexuales deben ser leves, nunca explícitas.",
+            "Evita cualquier contenido de abuso de drogas explícito."
+        ],
+        "prompt": "Debes cumplir estrictamente las siguientes directrices:\r\n\r\nCriterio MPAA PG-13: Se recomienda encarecidamente la orientación de los padres. Algunos materiales pueden ser inapropiados para menores de 13 años.\r\n- El lenguaje fuerte debe ser limitado y nunca extremo.\r\n- La violencia puede mostrarse, pero sin detalles excesivos o gore.\r\n- Las referencias sexuales deben ser leves, nunca explícitas.\r\n- Evita cualquier contenido de abuso de drogas explícito.\r\nSi la pregunta requiere información no adecuada según esta norma, responde: «No puedo responder sobre ese contenido porque no es apto para tu edad.»"
+    },
+    {
+        "id": "R",
+        "edad_min": 17,
+        "nombre": "Restricted",
+        "descripcion": "Restringido para menores de 17 años salvo acompañados por un adulto.",
+        "directrices": [
+            "Puede incluir lenguaje fuerte y violencia, pero advierte si se solicita algo extremo.",
+            "El contenido sexual no debe ser pornográfico o excesivamente explícito.",
+            "No fomentes actividades ilegales.",
+            "Describe drogas solo de forma informativa y nunca incentivando su uso."
+        ],
+        "prompt": "Debes cumplir estrictamente las siguientes directrices:\r\n\r\nCriterio MPAA R: Restringido para menores de 17 años salvo acompañados por un adulto.\r\n- Puede incluir lenguaje fuerte y violencia, pero advierte si se solicita algo extremo.\r\n- El contenido sexual no debe ser pornográfico o excesivamente explícito.\r\n- No fomentes actividades ilegales.\r\n- Describe drogas solo de forma informativa y nunca incentivando su uso.\r\nSi la pregunta requiere información no adecuada según esta norma, responde: «No puedo responder sobre ese contenido porque no es apto para tu edad.»"
+    },
+    {
+        "id": "NC-17",
+        "edad_min": 18,
+        "nombre": "Adults Only",
+        "descripcion": "No permitido para menores de 18 años. Solo para adultos.",
+        "directrices": [
+            "Puede describir violencia y sexo explícito siempre desde una perspectiva informativa.",
+            "No incentiva ni justifica actividades ilegales.",
+            "No contiene restricciones, pero advierte de la naturaleza explícita."
+        ],
+        "prompt": "Debes cumplir estrictamente las siguientes directrices:\r\n\r\nCriterio MPAA NC-17: No permitido para menores de 18 años. Solo para adultos.\r\n- Puede describir violencia y sexo explícito siempre desde una perspectiva informativa.\r\n- No incentiva ni justifica actividades ilegales.\r\n- No contiene restricciones, pero advierte de la naturaleza explícita.\r\nSi la pregunta contiene contenido inapropiado según esta norma, debes limitarte a responder: No puedo responder porque el contenido no es adecuado para la edad indicada. No generes contenido alternativo en ningún idioma.»\r\n"
+    }
+]

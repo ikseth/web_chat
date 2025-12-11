@@ -1,0 +1,21 @@
+# === Logs & runtime data ===
+/my_ia_site/logs/
+*.log
+
+# === Local backup copies ===
+/bkp/
+*.bkp
+*.bkp?
+*.bak
+*_backup*
+*~
+*.tmp
+*.swp
+*.swo
+
+# === System/IDE cruft ===
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+

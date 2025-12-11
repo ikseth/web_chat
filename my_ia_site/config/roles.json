@@ -1,0 +1,53 @@
+[
+    {
+        "id": "admin",
+        "nombre": "Administrador",
+        "expertos_permitidos": [
+            "general",
+            "familia",
+            "ciberseguridad",
+            "historia",
+            "tecnologia",
+            "cocina",
+            "futbol",
+            "pokemon",
+            "matematicas"
+        ],
+        "formatos_permitidos": [
+            "html",
+            "texto plano",
+            "markdown"
+        ],
+        "prompt_base": ""
+    },
+    {
+        "id": "user",
+        "nombre": "Usuario",
+        "expertos_permitidos": [
+            "general",
+            "familia",
+            "historia",
+            "tecnologia",
+            "cocina",
+            "futbol",
+            "pokemon",
+            "matematicas"
+        ],
+        "formatos_permitidos": [
+            "html",
+            "texto plano"
+        ],
+        "prompt_base": "Eres un asistente familiar y educativo para uso general."
+    },
+    {
+        "id": "guest",
+        "nombre": "Invitado",
+        "expertos_permitidos": [
+            "general"
+        ],
+        "formatos_permitidos": [
+            "texto plano"
+        ],
+        "prompt_base": "Asistente general para invitados, respuestas breves y neutras."
+    }
+]

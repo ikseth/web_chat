@@ -1,0 +1,8 @@
+{
+  "contenido_prohibido": {
+    "sexo": ["sexo", "pornografía", "desnudo", "masturbación", "orgasmo"],
+    "violencia": ["asesinato", "tortura", "violencia", "pelea", "guerra", "sangre"],
+    "drogas": ["drogas", "cocaína", "heroína", "marihuana", "alcohol", "fumar"]
+  }
+}
+
