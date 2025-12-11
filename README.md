@@ -1,5 +1,7 @@
 # Web Chat Portal
 
+> Nota: última actualización realizada el 2025-12-11.
+
 Portal PHP sencillo pensado como laboratorio de administración de chats IA. Este repositorio contiene:
 
 - `my_ia_site/`: aplicación principal con módulos, configuración y recursos estáticos.
@@ -27,4 +29,3 @@ Portal PHP sencillo pensado como laboratorio de administración de chats IA. Est
 ```
 
 Consulte `my_ia_site/docs/directory_map.md` para un desglose detallado del árbol de directorios.
-
